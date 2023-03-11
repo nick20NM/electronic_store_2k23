@@ -2,6 +2,7 @@ package com.alpha.www.ElectronicStore.service;
 
 import java.util.List;
 
+import com.alpha.www.ElectronicStore.dto.PageableResponse;
 import com.alpha.www.ElectronicStore.dto.UserDto;
 
 public interface UserService {
@@ -16,7 +17,7 @@ public interface UserService {
 	void deleteUser(String userId);
 	
 	// get all users
-	List<UserDto> getAllUsers();
+	PageableResponse<UserDto> getAllUsers(int pageNo, int pageSize, String sortBy, String sortDir);
 	
 	// get single user by id
 	UserDto getUserById(String userId);
