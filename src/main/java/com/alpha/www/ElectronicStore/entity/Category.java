@@ -1,8 +1,14 @@
 package com.alpha.www.ElectronicStore.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -31,4 +37,7 @@ public class Category {
 	private String coverImage;
 	
 	// other fields
+	
+	@OneToMany(mappedBy = "category" ,cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private List<Product> products = new ArrayList<>(); 
 }
